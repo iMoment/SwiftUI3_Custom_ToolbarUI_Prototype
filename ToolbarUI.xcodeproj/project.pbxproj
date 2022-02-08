@@ -11,6 +11,8 @@
 		91515F9B27B3104200AA7BF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91515F9A27B3104200AA7BF9 /* ContentView.swift */; };
 		91515F9D27B3104300AA7BF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91515F9C27B3104300AA7BF9 /* Assets.xcassets */; };
 		91515FA027B3104300AA7BF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91515F9F27B3104300AA7BF9 /* Preview Assets.xcassets */; };
+		91515FA827B310C900AA7BF9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91515FA727B310C900AA7BF9 /* HomeView.swift */; };
+		91515FAB27B3117900AA7BF9 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91515FAA27B3117900AA7BF9 /* PopoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		91515F9A27B3104200AA7BF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		91515F9C27B3104300AA7BF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91515F9F27B3104300AA7BF9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		91515FA727B310C900AA7BF9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		91515FAA27B3117900AA7BF9 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				91515F9827B3104200AA7BF9 /* ToolbarUIApp.swift */,
 				91515F9A27B3104200AA7BF9 /* ContentView.swift */,
+				91515FA627B310BA00AA7BF9 /* Views */,
+				91515FA927B3116700AA7BF9 /* Components */,
 				91515F9C27B3104300AA7BF9 /* Assets.xcassets */,
 				91515F9E27B3104300AA7BF9 /* Preview Content */,
 			);
@@ -65,6 +71,22 @@
 				91515F9F27B3104300AA7BF9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		91515FA627B310BA00AA7BF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91515FA727B310C900AA7BF9 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91515FA927B3116700AA7BF9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				91515FAA27B3117900AA7BF9 /* PopoverView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91515FA827B310C900AA7BF9 /* HomeView.swift in Sources */,
 				91515F9B27B3104200AA7BF9 /* ContentView.swift in Sources */,
+				91515FAB27B3117900AA7BF9 /* PopoverView.swift in Sources */,
 				91515F9927B3104200AA7BF9 /* ToolbarUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
