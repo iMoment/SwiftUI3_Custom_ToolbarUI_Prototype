@@ -26,7 +26,7 @@ struct HomeView: View {
             }
             .navigationTitle("Popovers")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         withAnimation {
                             show.toggle()
@@ -37,7 +37,7 @@ struct HomeView: View {
                 }
             }
         }
-        .toolBarPopover(show: $show) {
+        .toolBarPopover(show: $show, placement: .trailing) {
             // MARK: Popover View
             DatePicker("", selection: .constant(Date()))
                 .datePickerStyle(.wheel)

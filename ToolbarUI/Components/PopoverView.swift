@@ -9,7 +9,7 @@ import SwiftUI
 
 // MARK: Extension for popover
 extension View {
-    func toolBarPopover<Content: View>(show: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
+    func toolBarPopover<Content: View>(show: Binding<Bool>, placement: Placement = .leading, @ViewBuilder content: @escaping () -> Content) -> some View {
         self
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(
@@ -19,15 +19,23 @@ extension View {
                             .padding()
                             .background(
                                 Color.white
-                                    .cornerRadius(15)
+                                    .clipShape(PopoverArrowShape(placement: placement))
                             )
+                            .shadow(color: Color.primary.opacity(0.05), radius: 5, x: 5, y: 5)
+                            .shadow(color: Color.primary.opacity(0.05), radius: 5, x: -5, y: -5)
                             .padding(.horizontal, 35)
                             .offset(y: 55)
-                            .offset(x: -20)
+                            .offset(x: placement == .leading ? -20 : 20)
                     }
-                }, alignment: .topLeading
+                }, alignment: placement == .leading ? .topLeading : .topTrailing
             )
     }
+}
+
+// MARK: Placement
+enum Placement {
+    case leading
+    case trailing
 }
 
 struct PopoverView_Previews: PreviewProvider {
@@ -38,6 +46,7 @@ struct PopoverView_Previews: PreviewProvider {
 
 // Custom Arrow Shape
 struct PopoverArrowShape: Shape {
+    var placement: Placement
     
     func path(in rect: CGRect) -> Path {
         
@@ -54,6 +63,14 @@ struct PopoverArrowShape: Shape {
             path.addArc(tangent1End: pt2, tangent2End: pt3, radius: 15)
             path.addArc(tangent1End: pt3, tangent2End: pt4, radius: 15)
             path.addArc(tangent1End: pt4, tangent2End: pt1, radius: 15)
+            
+            // MARK: Arrow
+            path.move(to: pt1)
+            
+            path.addLine(to: CGPoint(x: placement == .leading ? 10 : rect.width - 10, y: 0))
+            path.addLine(to: CGPoint(x: placement == .leading ? 15 : rect.width - 15, y: 0))
+            path.addLine(to: CGPoint(x: placement == .leading ? 25 : rect.width - 25, y: -15))
+            path.addLine(to: CGPoint(x: placement == .leading ? 40 : rect.width - 40, y: 0))
         }
     }
 }
