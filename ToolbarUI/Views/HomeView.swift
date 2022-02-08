@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State var showDatePicker: Bool = false
     @State var showPicker: Bool = false
+    @State var show: Bool = false
     
     var body: some View {
         NavigationView {
@@ -24,6 +25,23 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Popovers")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        withAnimation {
+                            show.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "slider.horizontal.below.square.fill.and.square")
+                    }
+                }
+            }
+        }
+        .toolBarPopover(show: $show) {
+            // MARK: Popover View
+            DatePicker("", selection: .constant(Date()))
+                .datePickerStyle(.wheel)
+                .labelsHidden()
         }
     }
 }
